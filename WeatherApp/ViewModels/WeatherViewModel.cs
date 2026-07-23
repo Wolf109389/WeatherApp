@@ -7,30 +7,42 @@ namespace WeatherApp.ViewModels;
 public partial class WeatherViewModel : ObservableObject
 {
     private readonly WeatherService _weatherService;
+    private readonly LocationService _locationService;
 
-    public WeatherViewModel(WeatherService weatherService)
+    public WeatherViewModel(WeatherService weatherService, LocationService locationService)
     {
         _weatherService = weatherService;
+        _locationService = locationService;
     }
 
     [ObservableProperty]
     private string temperature = "Press Button";
 
+    [ObservableProperty]
+    private string cityName = "";
+
     [RelayCommand]
-    async Task SearchLocationShowWeatherAsync()
+    private async Task SearchLocationShowWeatherAsync()
     {
-        var location = await _weatherService.GetLocationAsync(cityName);
+        Temperature = DateTime.Now.ToLongTimeString();
+        //Temperature = "Loading...";
 
-        var weather = await _weatherService.GetWeatherAsync(location.Latitude, location.Longitude);
+        //var location = await _locationService.GetLocationAsync(CityName);
 
-        if (weather != null)
-        {
-            Temperature = $"{weather.current.Temperature} °C";
-        }
-        else
-            Temperature = "Error fetching weather";
+        //if (location == null) 
+        //{
+        //    Temperature = "Location not found";
+        //    return;
+        //}
+
+        //var weather = await _weatherService.GetWeatherAsync(location.Latitude, location.Longitude);
+
+        //if (weather != null)
+        //    Temperature = $"{weather.Current.Temperature} °C";
+        //else
+        //    Temperature = "Error fetching weather";
+
+        //return; 
     }
 
-    [ObservableProperty]
-    public string cityName = "";
 }

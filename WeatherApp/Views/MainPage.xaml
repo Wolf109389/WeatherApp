@@ -11,6 +11,7 @@
 
             <Entry Placeholder="Enter city name" Text="{Binding CityName}" />
             <Button Text="Get weather" Command="{Binding SearchLocationShowWeatherAsyncCommand}" />
+            <ActivityIndicator />   
             <Label Text="{Binding Temperature}" FontSize="25" HorizontalOptions="Center" />
 
         </VerticalStackLayout>
