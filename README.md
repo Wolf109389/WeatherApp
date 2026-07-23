@@ -90,4 +90,4 @@ While building this project I practiced:
 
 ## License
 
-This project is for learning purposes.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
