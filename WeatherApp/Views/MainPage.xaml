@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherApp.MainPage"
+             xmlns:viewModels="clr-namespace:WeatherApp.ViewModels"
+             x:DataType="viewModels:WeatherViewModel"
              Title="Weather">
 
     <ScrollView>
@@ -10,9 +12,11 @@
             Spacing="25">
 
             <Entry Placeholder="Enter city name" Text="{Binding CityName}" />
-            <Button Text="Get weather" Command="{Binding SearchLocationShowWeatherAsyncCommand}" />
-            <ActivityIndicator />   
-            <Label Text="{Binding Temperature}" FontSize="25" HorizontalOptions="Center" />
+            <Button Text="Get weather" Command="{Binding SearchLocationShowWeatherCommand}"  IsEnabled="{Binding IsNotLoading}"/>
+            <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" />   
+            <Label Text="{Binding Place}" FontSize="25" HorizontalOptions="Center"  />
+            <Label Text="{Binding Temperature}" FontSize="20" HorizontalOptions="Center" />
+            <Label Text="{Binding Time}" FontSize="20" HorizontalOptions="Center"  />
 
         </VerticalStackLayout>
     </ScrollView>

@@ -8,7 +8,7 @@ public class LocationService
     private readonly HttpClient _httpClient;
 
     public LocationService(HttpClient httpClient)
-    {
+        {
         _httpClient = httpClient;
     }
 

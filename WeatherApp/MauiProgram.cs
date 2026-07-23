@@ -24,6 +24,7 @@ namespace WeatherApp
             builder.Services.AddSingleton<WeatherService>();
             builder.Services.AddSingleton<WeatherViewModel>();
             builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<LocationService>();
 
             return builder.Build();
         }

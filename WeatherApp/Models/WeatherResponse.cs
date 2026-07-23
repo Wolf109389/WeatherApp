@@ -4,14 +4,14 @@ namespace WeatherApp.Models;
 
 public class WeatherResponse
 {
-    [JsonPropertyName("current_weather")]
+    [JsonPropertyName("current")]
     public CurrentWeather? Current {  get; set; }
 }
 
 public class CurrentWeather
 {
     [JsonPropertyName("time")]
-    public string Time { get; set; } = "";
+    public DateTime Time { get; set; } = DateTime.MinValue;
 
     [JsonPropertyName("interval")]
     public int Interval { get; set; }
